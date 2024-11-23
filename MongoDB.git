@@ -1,0 +1,966 @@
+insertamos 100 documentos.
+
+
+db.Ventas.insertMany([
+  {
+    "titulo": "Libro 1",
+    "autor": "Carlos Rodríguez",
+    "genero": "Novela",
+    "fecha_publicacion": ISODate("2020-03-15"),
+    "categoria": "Drama",
+    "cantidad": 15,
+    "precio": 45000
+  },
+  {
+    "titulo": "Libro 2",
+    "autor": "Luis Gómez",
+    "genero": "Ficción",
+    "fecha_publicacion": ISODate("2019-07-22"),
+    "categoria": "Aventura",
+    "cantidad": 20,
+    "precio": 38000
+  },
+  {
+    "titulo": "Libro 3",
+    "autor": "María Pérez",
+    "genero": "Novela",
+    "fecha_publicacion": ISODate("2021-01-10"),
+    "categoria": "Romance",
+    "cantidad": 12,
+    "precio": 42000
+  },
+  {
+    "titulo": "Libro 4",
+    "autor": "Juan Ramírez",
+    "genero": "Ficción",
+    "fecha_publicacion": ISODate("2018-11-30"),
+    "categoria": "Suspenso",
+    "cantidad": 25,
+    "precio": 55000
+  },
+  {
+    "titulo": "Libro 5",
+    "autor": "Andrea Morales",
+    "genero": "Novela",
+    "fecha_publicacion": ISODate("2022-05-18"),
+    "categoria": "Misterio",
+    "cantidad": 10,
+    "precio": 48000
+  },
+  {
+    "titulo": "Libro 6",
+    "autor": "Daniel Hernández",
+    "genero": "Ficción",
+    "fecha_publicacion": ISODate("2020-09-05"),
+    "categoria": "Aventura",
+    "cantidad": 30,
+    "precio": 51000
+  },
+  {
+    "titulo": "Libro 7",
+    "autor": "Carolina Vargas",
+    "genero": "Novela",
+    "fecha_publicacion": ISODate("2021-04-12"),
+    "categoria": "Drama",
+    "cantidad": 18,
+    "precio": 39000
+  },
+  {
+    "titulo": "Libro 8",
+    "autor": "Pedro Martínez",
+    "genero": "Ficción",
+    "fecha_publicacion": ISODate("2019-12-03"),
+    "categoria": "Ciencia Ficción",
+    "cantidad": 8,
+    "precio": 47000
+  },
+  {
+    "titulo": "Libro 9",
+    "autor": "Ana Torres",
+    "genero": "Novela",
+    "fecha_publicacion": ISODate("2023-02-20"),
+    "categoria": "Romance",
+    "cantidad": 40,
+    "precio": 43000
+  },
+  {
+    "titulo": "Libro 10",
+    "autor": "Jorge Sánchez",
+    "genero": "Ficción",
+    "fecha_publicacion": ISODate("2022-08-14"),
+    "categoria": "Acción",
+    "cantidad": 22,
+    "precio": 53000
+  },
+  {
+    "titulo": "Libro 11",
+    "autor": "Laura Jiménez",
+    "genero": "Novela",
+    "fecha_publicacion": ISODate("2020-06-25"),
+    "categoria": "Drama",
+    "cantidad": 16,
+    "precio": 44000
+  },
+  {
+    "titulo": "Libro 12",
+    "autor": "Roberto Castro",
+    "genero": "Ficción",
+    "fecha_publicacion": ISODate("2021-11-08"),
+    "categoria": "Fantasía",
+    "cantidad": 28,
+    "precio": 49000
+  },
+  {
+    "titulo": "Libro 13",
+    "autor": "Isabel López",
+    "genero": "Novela",
+    "fecha_publicacion": ISODate("2019-03-30"),
+    "categoria": "Romance",
+    "cantidad": 14,
+    "precio": 41000
+  },
+  {
+    "titulo": "Libro 14",
+    "autor": "Miguel Ángel Ruiz",
+    "genero": "Ficción",
+    "fecha_publicacion": ISODate("2022-01-15"),
+    "categoria": "Suspenso",
+    "cantidad": 32,
+    "precio": 56000
+  },
+  {
+    "titulo": "Libro 15",
+    "autor": "Carmen Díaz",
+    "genero": "Novela",
+    "fecha_publicacion": ISODate("2020-12-20"),
+    "categoria": "Misterio",
+    "cantidad": 11,
+    "precio": 46000
+  },
+  {
+    "titulo": "Libro 16",
+    "autor": "Fernando García",
+    "genero": "Ficción",
+    "fecha_publicacion": ISODate("2021-07-03"),
+    "categoria": "Aventura",
+    "cantidad": 26,
+    "precio": 52000
+  },
+  {
+    "titulo": "Libro 17",
+    "autor": "Patricia Mendoza",
+    "genero": "Novela",
+    "fecha_publicacion": ISODate("2019-09-14"),
+    "categoria": "Drama",
+    "cantidad": 19,
+    "precio": 40000
+  },
+  {
+    "titulo": "Libro 18",
+    "autor": "Ricardo Ortiz",
+    "genero": "Ficción",
+    "fecha_publicacion": ISODate("2022-04-28"),
+    "categoria": "Ciencia Ficción",
+    "cantidad": 9,
+    "precio": 48000
+  },
+  {
+    "titulo": "Libro 19",
+    "autor": "Sofía Navarro",
+    "genero": "Novela",
+    "fecha_publicacion": ISODate("2020-08-07"),
+    "categoria": "Romance",
+    "cantidad": 35,
+    "precio": 44000
+  },
+  {
+    "titulo": "Libro 20",
+    "autor": "Alberto Medina",
+    "genero": "Ficción",
+    "fecha_publicacion": ISODate("2021-02-19"),
+    "categoria": "Acción",
+    "cantidad": 24,
+    "precio": 54000
+  },
+  {
+    "titulo": "Libro 21",
+    "autor": "Elena Flores",
+    "genero": "Novela",
+    "fecha_publicacion": ISODate("2019-05-11"),
+    "categoria": "Drama",
+    "cantidad": 17,
+    "precio": 43000
+  },
+  {
+    "titulo": "Libro 22",
+    "autor": "Raúl Vega",
+    "genero": "Ficción",
+    "fecha_publicacion": ISODate("2022-10-30"),
+    "categoria": "Fantasía",
+    "cantidad": 21,
+    "precio": 50000
+  },
+  {
+    "titulo": "Libro 23",
+    "autor": "Diana Cruz",
+    "genero": "Novela",
+    "fecha_publicacion": ISODate("2020-04-02"),
+    "categoria": "Romance",
+    "cantidad": 13,
+    "precio": 41000
+  },
+  {
+    "titulo": "Libro 24",
+    "autor": "Gustavo Herrera",
+    "genero": "Ficción",
+    "fecha_publicacion": ISODate("2021-09-25"),
+    "categoria": "Suspenso",
+    "cantidad": 27,
+    "precio": 57000
+  },
+  {
+    "titulo": "Libro 25",
+    "autor": "Beatriz Ramos",
+    "genero": "Novela",
+    "fecha_publicacion": ISODate("2019-11-16"),
+    "categoria": "Misterio",
+    "cantidad": 12,
+    "precio": 47000
+  },
+  {
+    "titulo": "Libro 26",
+    "autor": "Andrés Silva",
+    "genero": "Ficción",
+    "fecha_publicacion": ISODate("2022-03-08"),
+    "categoria": "Aventura",
+    "cantidad": 31,
+    "precio": 53000
+  },
+  {
+    "titulo": "Libro 27",
+    "autor": "Lucía Moreno",
+    "genero": "Novela",
+    "fecha_publicacion": ISODate("2020-07-21"),
+    "categoria": "Drama",
+    "cantidad": 20,
+    "precio": 39000
+  },
+  {
+    "titulo": "Libro 28",
+    "autor": "Héctor Pacheco",
+    "genero": "Ficción",
+    "fecha_publicacion": ISODate("2021-12-14"),
+    "categoria": "Ciencia Ficción",
+    "cantidad": 7,
+    "precio": 49000
+  },
+  {
+    "titulo": "Libro 29",
+    "autor": "Marina Valencia",
+    "genero": "Novela",
+    "fecha_publicacion": ISODate("2019-02-28"),
+    "categoria": "Romance",
+    "cantidad": 38,
+    "precio": 45000
+  },
+  {
+    "titulo": "Libro 30",
+    "autor": "Sergio Rojas",
+    "genero": "Ficción",
+    "fecha_publicacion": ISODate("2022-06-11"),
+    "categoria": "Acción",
+    "cantidad": 23,
+    "precio": 55000
+  },
+  {
+    "titulo": "Libro 31",
+    "autor": "Paula Varela",
+    "genero": "Novela",
+    "fecha_publicacion": ISODate("2020-10-03"),
+    "categoria": "Drama",
+    "cantidad": 14,
+    "precio": 42000
+  },
+  {
+    "titulo": "Libro 32",
+    "autor": "Hugo Campos",
+    "genero": "Ficción",
+    "fecha_publicacion": ISODate("2021-05-16"),
+    "categoria": "Fantasía",
+    "cantidad": 29,
+    "precio": 51000
+  },
+  {
+    "titulo": "Libro 33",
+    "autor": "Teresa Ríos",
+    "genero": "Novela",
+    "fecha_publicacion": ISODate("2019-08-09"),
+    "categoria": "Romance",
+    "cantidad": 15,
+    "precio": 40000
+  },
+  {
+    "titulo": "Libro 34",
+    "autor": "Javier Luna",
+    "genero": "Ficción",
+    "fecha_publicacion": ISODate("2022-02-22"),
+    "categoria": "Suspenso",
+    "cantidad": 33,
+    "precio": 58000
+  },
+  {
+    "titulo": "Libro 35",
+    "autor": "Rosa Méndez",
+    "genero": "Novela",
+    "fecha_publicacion": ISODate("2020-01-05"),
+    "categoria": "Misterio",
+    "cantidad": 13,
+    "precio": 46000
+  },
+  {
+    "titulo": "Libro 36",
+    "autor": "Marcos Delgado",
+    "genero": "Ficción",
+    "fecha_publicacion": ISODate("2021-08-28"),
+    "categoria": "Aventura",
+    "cantidad": 28,
+    "precio": 54000
+  },
+  {
+    "titulo": "Libro 37",
+    "autor": "Valeria Cortés",
+    "genero": "Novela",
+    "fecha_publicacion": ISODate("2019-04-19"),
+    "categoria": "Drama",
+    "cantidad": 21,
+    "precio": 38000
+  },
+  {
+    "titulo": "Libro 38",
+    "autor": "Óscar Molina",
+    "genero": "Ficción",
+    "fecha_publicacion": ISODate("2022-11-02"),
+    "categoria": "Ciencia Ficción",
+    "cantidad": 10,
+    "precio": 50000
+  },
+  {
+    "titulo": "Libro 39",
+    "autor": "Julia Paredes",
+    "genero": "Novela",
+    "fecha_publicacion": ISODate("2020-05-14"),
+    "categoria": "Romance",
+    "cantidad": 36,
+    "precio": 43000
+  },
+  {
+    "titulo": "Libro 40",
+    "autor": "Emilio Soto",
+    "genero": "Ficción",
+    "fecha_publicacion": ISODate("2021-10-07"),
+    "categoria": "Acción",
+    "cantidad": 25,
+    "precio": 56000
+  },
+  {
+    "titulo": "Libro 41",
+    "autor": "Gabriela Pinto",
+    "genero": "Novela",
+    "fecha_publicacion": ISODate("2019-06-30"),
+    "categoria": "Drama",
+    "cantidad": 18,
+    "precio": 41000
+  },
+  {
+    "titulo": "Libro 42",
+    "autor": "Alejandro Bravo",
+    "genero": "Ficción",
+    "fecha_publicacion": ISODate("2022-09-13"),
+    "categoria": "Fantasía",
+    "cantidad": 22,
+    "precio": 52000
+  },
+  {
+    "titulo": "Libro 43",
+    "autor": "Natalia Duarte",
+    "genero": "Novela",
+    "fecha_publicacion": ISODate("2020-02-26"),
+    "categoria": "Romance",
+    "cantidad": 16,
+    "precio": 39000
+  },
+  {
+    "titulo": "Libro 44",
+    "autor": "Roberto Guerrero",
+    "genero": "Ficción",
+    "fecha_publicacion": ISODate("2021-07-09"),
+    "categoria": "Suspenso",
+    "cantidad": 30,
+    "precio": 59000
+  },
+  {
+    "titulo": "Libro 45",
+    "autor": "Clara Espinoza",
+    "genero": "Novela",
+    "fecha_publicacion": ISODate("2019-10-22"),
+    "categoria": "Misterio",
+    "cantidad": 14,
+    "precio": 45000
+  },
+  {
+    "titulo": "Libro 46",
+    "autor": "Felipe Miranda",
+    "genero": "Ficción",
+    "fecha_publicacion": ISODate("2022-05-05"),
+    "categoria": "Aventura",
+    "cantidad": 27,
+    "precio": 55000
+  },
+  {
+    "titulo": "Libro 47",
+    "autor": "Carmen Santos",
+    "genero": "Novela",
+    "fecha_publicacion": ISODate("2020-08-18"),
+    "categoria": "Drama",
+    "cantidad": 19,
+    "precio": 37000
+  },
+{
+    "titulo": "Libro 48",
+    "autor": "Leonardo Vera",
+    "genero": "Ficción",
+    "fecha_publicacion": ISODate("2021-03-31"),
+    "categoria": "Ciencia Ficción",
+    "cantidad": 11,
+    "precio": 51000
+  },
+  {
+    "titulo": "Libro 49",
+    "autor": "Mariana Quiroz",
+    "genero": "Novela",
+    "fecha_publicacion": ISODate("2019-12-14"),
+    "categoria": "Romance",
+    "cantidad": 34,
+    "precio": 44000
+  },
+  {
+    "titulo": "Libro 50",
+    "autor": "Vicente Mora",
+    "genero": "Ficción",
+    "fecha_publicacion": ISODate("2022-07-27"),
+    "categoria": "Acción",
+    "cantidad": 26,
+    "precio": 57000
+  },
+  {
+    "titulo": "Libro 51",
+    "autor": "Adriana Carvajal",
+    "genero": "Novela",
+    "fecha_publicacion": ISODate("2020-11-09"),
+    "categoria": "Drama",
+    "cantidad": 17,
+    "precio": 40000
+  },
+  {
+    "titulo": "Libro 52",
+    "autor": "Rodrigo Núñez",
+    "genero": "Ficción",
+    "fecha_publicacion": ISODate("2021-06-22"),
+    "categoria": "Fantasía",
+    "cantidad": 23,
+    "precio": 53000
+  },
+  {
+    "titulo": "Libro 53",
+    "autor": "Cecilia Robles",
+    "genero": "Novela",
+    "fecha_publicacion": ISODate("2019-03-15"),
+    "categoria": "Romance",
+    "cantidad": 15,
+    "precio": 38000
+  },
+  {
+    "titulo": "Libro 54",
+    "autor": "Guillermo Araya",
+    "genero": "Ficción",
+    "fecha_publicacion": ISODate("2022-01-28"),
+    "categoria": "Suspenso",
+    "cantidad": 31,
+    "precio": 60000
+  },
+  {
+    "titulo": "Libro 55",
+    "autor": "Daniela Bustos",
+    "genero": "Novela",
+    "fecha_publicacion": ISODate("2020-04-10"),
+    "categoria": "Misterio",
+    "cantidad": 12,
+    "precio": 46000
+  },
+  {
+    "titulo": "Libro 56",
+    "autor": "Ignacio Vidal",
+    "genero": "Ficción",
+    "fecha_publicacion": ISODate("2021-09-03"),
+    "categoria": "Aventura",
+    "cantidad": 29,
+    "precio": 54000
+  },
+  {
+    "titulo": "Libro 57",
+    "autor": "Mercedes Fuentes",
+    "genero": "Novela",
+    "fecha_publicacion": ISODate("2019-07-26"),
+    "categoria": "Drama",
+    "cantidad": 20,
+    "precio": 39000
+  },
+  {
+    "titulo": "Libro 58",
+    "autor": "Francisco Tapia",
+    "genero": "Ficción",
+    "fecha_publicacion": ISODate("2022-12-09"),
+    "categoria": "Ciencia Ficción",
+    "cantidad": 9,
+    "precio": 52000
+  },
+  {
+    "titulo": "Libro 59",
+    "autor": "Renata Orozco",
+    "genero": "Novela",
+    "fecha_publicacion": ISODate("2020-05-22"),
+    "categoria": "Romance",
+    "cantidad": 37,
+    "precio": 45000
+  },
+  {
+    "titulo": "Libro 60",
+    "autor": "Mauricio Ibáñez",
+    "genero": "Ficción",
+    "fecha_publicacion": ISODate("2021-10-15"),
+    "categoria": "Acción",
+    "cantidad": 24,
+    "precio": 58000
+  },
+  {
+    "titulo": "Libro 61",
+    "autor": "Antonia Valenzuela",
+    "genero": "Novela",
+    "fecha_publicacion": ISODate("2019-08-12"),
+    "categoria": "Drama",
+    "cantidad": 16,
+    "precio": 43500
+  },
+  {
+    "titulo": "Libro 62",
+    "autor": "Emmanuel Cordero",
+    "genero": "Ficción",
+    "fecha_publicacion": ISODate("2022-04-25"),
+    "categoria": "Fantasía",
+    "cantidad": 28,
+    "precio": 51500
+  },
+  {
+    "titulo": "Libro 63",
+    "autor": "Isabella Contreras",
+    "genero": "Novela",
+    "fecha_publicacion": ISODate("2020-01-18"),
+    "categoria": "Romance",
+    "cantidad": 14,
+    "precio": 39500
+  },
+  {
+    "titulo": "Libro 64",
+    "autor": "Sebastián Arce",
+    "genero": "Ficción",
+    "fecha_publicacion": ISODate("2021-07-30"),
+    "categoria": "Suspenso",
+    "cantidad": 32,
+    "precio": 58500
+  },
+  {
+    "titulo": "Libro 65",
+    "autor": "Valentina Parra",
+    "genero": "Novela",
+    "fecha_publicacion": ISODate("2019-11-05"),
+    "categoria": "Misterio",
+    "cantidad": 11,
+    "precio": 45500
+  },
+  {
+    "titulo": "Libro 66",
+    "autor": "Cristóbal Aguilera",
+    "genero": "Ficción",
+    "fecha_publicacion": ISODate("2022-03-15"),
+    "categoria": "Aventura",
+    "cantidad": 27,
+    "precio": 53500
+  },
+  {
+    "titulo": "Libro 67",
+    "autor": "Florencia Zamora",
+    "genero": "Novela",
+    "fecha_publicacion": ISODate("2020-09-28"),
+    "categoria": "Drama",
+    "cantidad": 19,
+    "precio": 41500
+  },
+  {
+    "titulo": "Libro 68",
+    "autor": "Matías Andrade",
+    "genero": "Ficción",
+    "fecha_publicacion": ISODate("2021-02-10"),
+    "categoria": "Ciencia Ficción",
+    "cantidad": 8,
+    "precio": 49500
+  },
+  {
+    "titulo": "Libro 69",
+    "autor": "Catalina Ugarte",
+    "genero": "Novela",
+    "fecha_publicacion": ISODate("2019-05-23"),
+    "categoria": "Romance",
+    "cantidad": 35,
+    "precio": 44500
+  },
+  {
+    "titulo": "Libro 70",
+    "autor": "Benjamín Saavedra",
+    "genero": "Ficción",
+    "fecha_publicacion": ISODate("2022-08-07"),
+    "categoria": "Acción",
+    "cantidad": 23,
+    "precio": 56500
+  },
+  {
+    "titulo": "Libro 71",
+    "autor": "Isidora Bello",
+    "genero": "Novela",
+    "fecha_publicacion": ISODate("2020-03-20"),
+    "categoria": "Drama",
+    "cantidad": 17,
+    "precio": 42500
+  },
+  {
+    "titulo": "Libro 72",
+    "autor": "Tomás Escobar",
+    "genero": "Ficción",
+    "fecha_publicacion": ISODate("2021-11-13"),
+    "categoria": "Fantasía",
+    "cantidad": 26,
+    "precio": 52500
+  },
+  {
+    "titulo": "Libro 73",
+    "autor": "Macarena Donoso",
+    "genero": "Novela",
+    "fecha_publicacion": ISODate("2019-02-15"),
+    "categoria": "Romance",
+    "cantidad": 13,
+    "precio": 40500
+  },
+  {
+    "titulo": "Libro 74",
+    "autor": "Felipe Montes",
+    "genero": "Ficción",
+    "fecha_publicacion": ISODate("2022-06-30"),
+    "categoria": "Suspenso",
+    "cantidad": 31,
+    "precio": 57500
+  },
+  {
+    "titulo": "Libro 75",
+    "autor": "Trinidad Cáceres",
+    "genero": "Novela",
+    "fecha_publicacion": ISODate("2020-12-03"),
+    "categoria": "Misterio",
+    "cantidad": 12,
+    "precio": 46500
+  },
+  {
+    "titulo": "Libro 76",
+    "autor": "Joaquín Leiva",
+    "genero": "Ficción",
+    "fecha_publicacion": ISODate("2021-04-16"),
+    "categoria": "Aventura",
+    "cantidad": 29,
+    "precio": 54500
+  },
+  {
+    "titulo": "Libro 77",
+    "autor": "Amanda Figueroa",
+    "genero": "Novela",
+    "fecha_publicacion": ISODate("2019-09-29"),
+    "categoria": "Drama",
+    "cantidad": 18,
+    "precio": 43500
+  },
+  {
+    "titulo": "Libro 78",
+    "autor": "Santiago Olivares",
+    "genero": "Ficción",
+    "fecha_publicacion": ISODate("2022-01-12"),
+    "categoria": "Ciencia Ficción",
+    "cantidad": 9,
+    "precio": 50500
+  },
+  {
+    "titulo": "Libro 79",
+    "autor": "Javiera Riquelme",
+    "genero": "Novela",
+    "fecha_publicacion": ISODate("2020-07-25"),
+    "categoria": "Romance",
+    "cantidad": 36,
+    "precio": 45500
+  },
+  {
+    "titulo": "Libro 80",
+    "autor": "Ignacio Sepúlveda",
+    "genero": "Ficción",
+    "fecha_publicacion": ISODate("2021-10-08"),
+    "categoria": "Acción",
+    "cantidad": 24,
+    "precio": 55500
+  },
+  {
+    "titulo": "Libro 81",
+    "autor": "Constanza Alarcón",
+    "genero": "Novela",
+    "fecha_publicacion": ISODate("2019-04-21"),
+    "categoria": "Drama",
+    "cantidad": 15,
+    "precio": 41500
+  },
+  {
+    "titulo": "Libro 82",
+    "autor": "Martín Gallardo",
+    "genero": "Ficción",
+    "fecha_publicacion": ISODate("2022-09-14"),
+    "categoria": "Fantasía",
+    "cantidad": 27,
+    "precio": 53500
+  },
+  {
+    "titulo": "Libro 83",
+    "autor": "Victoria Salazar",
+    "genero": "Novela",
+    "fecha_publicacion": ISODate("2020-02-07"),
+    "categoria": "Romance",
+    "cantidad": 14,
+    "precio": 39500
+  },
+  {
+    "titulo": "Libro 84",
+    "autor": "Lucas Miranda",
+    "genero": "Ficción",
+    "fecha_publicacion": ISODate("2021-08-20"),
+    "categoria": "Suspenso",
+    "cantidad": 33,
+    "precio": 59500
+  },
+  {
+    "titulo": "Libro 85",
+    "autor": "Magdalena Ortiz",
+    "genero": "Novela",
+    "fecha_publicacion": ISODate("2019-12-13"),
+    "categoria": "Misterio",
+    "cantidad": 10,
+    "precio": 47500
+  },
+  {
+    "titulo": "Libro 86",
+    "autor": "Diego Maldonado",
+    "genero": "Ficción",
+    "fecha_publicacion": ISODate("2022-05-26"),
+    "categoria": "Aventura",
+    "cantidad": 28,
+    "precio": 52500
+  },
+  {
+    "titulo": "Libro 87",
+    "autor": "Francisca Venegas",
+    "genero": "Novela",
+    "fecha_publicacion": ISODate("2020-11-09"),
+    "categoria": "Drama",
+    "cantidad": 20,
+    "precio": 44500
+  },
+  {
+    "titulo": "Libro 88",
+    "autor": "Gabriel Arancibia",
+    "genero": "Ficción",
+    "fecha_publicacion": ISODate("2021-03-22"),
+    "categoria": "Ciencia Ficción",
+    "cantidad": 7,
+    "precio": 48500
+  },
+  {
+    "titulo": "Libro 89",
+    "autor": "Josefa Navarro",
+    "genero": "Novela",
+    "fecha_publicacion": ISODate("2019-06-15"),
+    "categoria": "Romance",
+    "cantidad": 34,
+    "precio": 46500
+  },
+  {
+    "titulo": "Libro 90",
+    "autor": "Maximiliano Bravo",
+    "genero": "Ficción",
+    "fecha_publicacion": ISODate("2022-10-28"),
+    "categoria": "Acción",
+    "cantidad": 25,
+    "precio": 57500
+  },
+  {
+    "titulo": "Libro 91",
+    "autor": "Antonia Villalobos",
+    "genero": "Novela",
+    "fecha_publicacion": ISODate("2020-04-11"),
+    "categoria": "Drama",
+    "cantidad": 16,
+    "precio": 42500
+  },
+  {
+    "titulo": "Libro 92",
+    "autor": "Vicente Palma",
+    "genero": "Ficción",
+    "fecha_publicacion": ISODate("2021-09-24"),
+    "categoria": "Fantasía",
+    "cantidad": 30,
+    "precio": 51500
+  },
+  {
+    "titulo": "Libro 93",
+    "autor": "Emilia Carvallo",
+    "genero": "Novela",
+    "fecha_publicacion": ISODate("2019-01-17"),
+    "categoria": "Romance",
+    "cantidad": 15,
+    "precio": 40500
+  },
+  {
+    "titulo": "Libro 94",
+    "autor": "Cristóbal Pizarro",
+    "genero": "Ficción",
+    "fecha_publicacion": ISODate("2022-07-30"),
+    "categoria": "Suspenso",
+    "cantidad": 32,
+    "precio": 58500
+  },
+  {
+    "titulo": "Libro 95",
+    "autor": "Isidora Guzmán",
+    "genero": "Novela",
+    "fecha_publicacion": ISODate("2020-10-13"),
+    "categoria": "Misterio",
+    "cantidad": 11,
+    "precio": 45500
+  },
+  {
+    "titulo": "Libro 96",
+    "autor": "Benjamín Vergara",
+    "genero": "Ficción",
+    "fecha_publicacion": ISODate("2021-05-26"),
+    "categoria": "Aventura",
+    "cantidad": 27,
+    "precio": 53500
+  },
+  {
+    "titulo": "Libro 97",
+    "autor": "Laura Espinosa",
+    "genero": "Novela",
+    "fecha_publicacion": ISODate("2019-08-09"),
+    "categoria": "Drama",
+    "cantidad": 19,
+    "precio": 41500
+  },
+  {
+    "titulo": "Libro 98",
+    "autor": "Matías Fuentes",
+    "genero": "Ficción",
+    "fecha_publicacion": ISODate("2022-02-22"),
+    "categoria": "Ciencia Ficción",
+    "cantidad": 8,
+    "precio": 49500
+  },
+  {
+    "titulo": "Libro 99",
+    "autor": "Valentina Rojas",
+    "genero": "Novela",
+    "fecha_publicacion": ISODate("2020-06-05"),
+    "categoria": "Romance",
+    "cantidad": 35,
+    "precio": 44500
+  },
+  {
+    "titulo": "Libro 100",
+    "autor": "Sebastián Muñoz",
+    "genero": "Ficción",
+    "fecha_publicacion": ISODate("2021-11-18"),
+    "categoria": "Acción",
+    "cantidad": 23,
+    "precio": 56500
+  }
+]);
+
+
+// 1. CONSULTAS BÁSICAS
+
+// Inserción de un nuevo documento
+db.Ventas.insertOne({
+  "titulo": "Libro 101",
+  "autor": "Camilo Sesto",
+  "genero": "Novela",
+  "fecha_publicacion": ISODate("2023-03-15"),
+  "categoria": "Drama",
+  "cantidad": 25,
+  "precio": 48500
+})
+
+// Selección simple - Buscar un libro por título
+db.Ventas.find({ "titulo": "Libro 1" })
+
+// Actualización - Actualizar el precio de un libro
+db.Ventas.updateOne(
+  { "titulo": "Libro 1" },
+  { $set: { "precio": 46000 } }
+)
+
+// Eliminación - Eliminar un libro por título
+db.Ventas.deleteOne({ "titulo": "Libro 1" })
+
+// 2. CONSULTAS CON FILTROS Y OPERADORES
+
+// Buscar libros de cierto precio y categoría
+db.Ventas.find({
+  $and: [
+    { "precio": { $gte: 38000 } },
+    { "categoria": "Aventura" }
+  ]
+})
+
+// 3. CONSULTAS DE AGREGACIÓN
+
+db.Ventas.aggregate([
+  // Crear campo total (precio * cantidad)
+  {
+    $addFields: {
+      "total": { $multiply: ["$precio", "$cantidad"] }
+    }
+  },
+  // Agrupar por categoría y calcular estadísticas
+  {
+    $group: {
+      _id: "$categoria",
+      total_libros: { $sum: 1 },
+      promedio_precio: { $avg: "$precio" },
+      suma_total: { $sum: "$total" },
+      cantidad_total: { $sum: "$cantidad" }
+    }
+  },
+  // Ordenar por total de ventas descendente
+  {
+    $sort: { suma_total: -1 }
+  }
+])

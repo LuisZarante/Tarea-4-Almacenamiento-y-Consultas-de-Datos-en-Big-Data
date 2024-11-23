@@ -1,0 +1,251 @@
+Apache Hbase
+Lo primero es inicializar la máquina virtual de nuestro servidor.
+ 
+Realizamos la conexión del servidor con Putty.
+ 
+Accedemos con el usuario vboxuser y contraseña bigdata del servidor.
+ 
+Descargamos, extraemos y movemos Hbase.
+Para descargar:
+wget https://downloads.apache.org/hbase/2.6.1/hbase-2.6.1-bin.tar.gz
+ 
+Descomprimimos con:
+tar xzf hbase-2.6.1-bin.tar.gz
+ 
+Movemos la carpeta con:
+sudo mv hbase-2.6.1 /usr/local/hbase
+ 
+Realizamos las configuraciones a las Variables de Entorno accediendo al archivo bashrc con:
+nano ~/.bashrc
+y agregando el siguiente código al final del archivo por ultimo presionamos ctrl + o, enter  y ctrl+ x :
+export HBASE_HOME=/usr/local/hbase 
+export PATH=$PATH:$HBASE_HOME/bin
+ 
+Cargamos la configuración anterior en entorno actual con:
+ 
+Realizamos la configuración de Hbase por medio del archivo hbase-site.xml.
+Accedemos al archivo con:
+sudo nano /usr/local/hbase/conf/hbase-site.xml
+añadimos el siguiente código dentro de </configuration> por ultimo presionamos ctrl + o, enter  y ctrl+ x :
+<property> 
+<name>hbase.rootdir</name> 
+<value>file:///usr/local/hbase/data</value> 
+</property> 
+<property> 
+<name>hbase.zookeeper.property.dataDir</name> 
+<value>/usr/local/hbase/zookeeper</value> 
+</property> 
+<property> 
+<name>hbase.cluster.distributed</name> 
+<value>false</value> 
+</property>
+ 
+Modificamos el archivo llamado hbase-env.sh.
+Accedemos al archivo con: 
+sudo nano /usr/local/hbase/conf/hbase-env.sh
+y agregando el siguiente código al final del archivo por último presionamos ctrl + o, enter  y ctrl+ x :
+ 
+Inicializamos Hbase con:
+start-hbase.sh
+ 
+Para verificar que Hbase este corriendo lo hacemos con: 
+hbase Shell
+ 
+Verificamos el status del servidor con:
+Status
+ 
+Instalación de happibase para poder ejecutar codigo Python con Hbase con:
+pip install happybase
+ 
+Ejecutamos el servidor de thrift con:
+hbase-daemon.sh start thrift
+
+
+
+
+
+
+
+
+Realizamos pruebas desde Python.
+Creamos el archivo con:
+nano test_hbase.py 
+Añadimos las siguientes líneas de código en el archivo y guardamos con ctrl + o, enter y ctrl+ x.
+ 
+Ejecutamos el archivo:
+python3 test_hbase.py
+ 
+Dataset:
+Usaremos el dataset de estadísticas de rendimiento completo de los jugadores de la NBA a lo largo de la temporada 2024/2025. Este dataset incluye tanto estadísticas avanzadas como tradicionales, y es ideal con bases de datos como HBase, lo cual lo hace ideal para el análisis de rendimiento de jugadores, la evaluación de eficiencia y la exploración de patrones y tendencias de juego. Los datos se recopilaron de fuentes confiables, garantizando calidad y consistencia en cada registro.
+Descargaremos el dataset con:
+wget https://github.com/LuisZarante/ApacheHBase/raw/d3ebfba78c66f23975137097ff61ac8bbb551158/database_24_25.csv
+ 
+Creamos un archivo .py para las consultas con.
+nano consultas.py
+insertamos el siguiente comando.
+
+import happybase
+import pandas as pd
+from datetime import datetime
+
+# Bloque principal de ejecución
+try:
+    # 1. Establecer conexión con HBase
+    connection = happybase.Connection('localhost')
+    print("Conexión establecida con HBase")
+
+    # 2. Crear la tabla con las familias de columnas
+    table_name = 'nba_stats'
+    families = {
+        'player_info': dict(),  # información básica del jugador
+        'shooting': dict(),     # estadísticas de tiro
+        'rebounds': dict(),     # estadísticas de rebotes
+        'other_stats': dict(),  # otras estadísticas
+        'game_info': dict()     # información del juego
+    }
+
+    # Eliminar la tabla si ya existe
+    if table_name.encode() in connection.tables():
+        print(f"Eliminando tabla existente - {table_name}")
+        connection.delete_table(table_name, disable=True)
+
+    # Crear nueva tabla
+    connection.create_table(table_name, families)
+    table = connection.table(table_name)
+    print("Tabla 'nba_stats' creada exitosamente")
+
+    # 3. Cargar datos del CSV
+    nba_data = pd.read_csv('database_24_25.csv')
+    
+    # Mostrar las columnas disponibles en el DataFrame
+    print("\nColumnas disponibles en el CSV:")
+    print(nba_data.columns.tolist())
+
+    # Iterar sobre el DataFrame usando el índice
+    for index, row in nba_data.iterrows():
+        # Generar row key usando índice y nombre del jugador para evitar problemas con la fecha
+        row_key = f"{row['Player']}_{index}".encode()
+
+        # Organizar los datos en familias de columnas
+        data = {
+            # Player Info
+            b'player_info:name': str(row['Player']).encode(),
+            b'player_info:team': str(row['Tm']).encode(),
+            b'player_info:minutes': str(row['MP']).encode(),
+            
+            # Shooting Stats
+            b'shooting:fg': str(row['FG']).encode(),
+            b'shooting:fga': str(row['FGA']).encode(),
+            b'shooting:fg_pct': str(row['FG%']).encode(),
+            b'shooting:3p': str(row['3P']).encode(),
+            b'shooting:3pa': str(row['3PA']).encode(),
+            b'shooting:3p_pct': str(row['3P%']).encode(),
+            b'shooting:ft': str(row['FT']).encode(),
+            b'shooting:fta': str(row['FTA']).encode(),
+            b'shooting:ft_pct': str(row['FT%']).encode(),
+            
+            # Rebounds
+            b'rebounds:offensive': str(row['ORB']).encode(),
+            b'rebounds:defensive': str(row['DRB']).encode(),
+            b'rebounds:total': str(row['TRB']).encode(),
+            
+            # Other Stats
+            b'other_stats:assists': str(row['AST']).encode(),
+            b'other_stats:steals': str(row['STL']).encode(),
+            b'other_stats:blocks': str(row['BLK']).encode(),
+            b'other_stats:turnovers': str(row['TOV']).encode(),
+            b'other_stats:fouls': str(row['PF']).encode(),
+            b'other_stats:points': str(row['PTS']).encode(),
+            b'other_stats:game_score': str(row['GmSc']).encode(),
+            
+            # Game Info
+            b'game_info:opponent': str(row['Opp']).encode(),
+            b'game_info:result': str(row['Res']).encode(),
+        }
+
+        # Agregar la fecha si existe en el DataFrame (verificar el nombre exacto de la columna)
+        if 'Data' in row:
+            data[b'game_info:date'] = str(row['Data']).encode()
+        elif 'Date' in row:
+            data[b'game_info:date'] = str(row['Date']).encode()
+
+        table.put(row_key, data)
+
+    print("Datos cargados exitosamente")
+
+    # 4. Consultas y Análisis de Datos
+    print("\n=== Últimos 3 juegos registrados ===")
+    count = 0
+    for key, data in table.scan(limit=3):
+        print(f"\nJugador: {data[b'player_info:name'].decode()}")
+        print(f"Equipo: {data[b'player_info:team'].decode()}")
+        print(f"Puntos: {data[b'other_stats:points'].decode()}")
+        print(f"Game Score: {data[b'other_stats:game_score'].decode()}")
+
+    # 5. Jugadores con más de 30 puntos
+    print("\n=== Actuaciones con 30+ puntos ===")
+    for key, data in table.scan():
+        if int(data[b'other_stats:points'].decode()) > 30:
+            print(f"\nJugador: {data[b'player_info:name'].decode()}")
+            print(f"Puntos: {data[b'other_stats:points'].decode()}")
+            print(f"Contra: {data[b'game_info:opponent'].decode()}")
+
+    # 6. Triple-dobles
+    print("\n=== Triple-dobles registrados ===")
+    for key, data in table.scan():
+        points = int(data[b'other_stats:points'].decode())
+        rebounds = int(data[b'rebounds:total'].decode())
+        assists = int(data[b'other_stats:assists'].decode())
+        
+        if points >= 10 and rebounds >= 10 and assists >= 10:
+            print(f"\nJugador: {data[b'player_info:name'].decode()}")
+            print(f"PTS-REB-AST: {points}-{rebounds}-{assists}")
+
+    # 7. Análisis de eficiencia de tiro por equipo
+    print("\n=== Porcentaje de tiro por equipo ===")
+    team_stats = {}
+    for key, data in table.scan():
+        team = data[b'player_info:team'].decode()
+        fg_pct = float(data[b'shooting:fg_pct'].decode())
+        
+        if team not in team_stats:
+            team_stats[team] = {'total_pct': 0, 'count': 0}
+        
+        team_stats[team]['total_pct'] += fg_pct
+        team_stats[team]['count'] += 1
+
+    for team, stats in team_stats.items():
+        avg_fg_pct = stats['total_pct'] / stats['count']
+        print(f"{team}: {avg_fg_pct:.2f}%")
+
+    # 8. Top 5 actuaciones por Game Score
+    print("\n=== Top 5 mejores actuaciones (Game Score) ===")
+    performances = []
+    for key, data in table.scan():
+        performances.append({
+            'player': data[b'player_info:name'].decode(),
+            'game_score': float(data[b'other_stats:game_score'].decode()),
+            'points': data[b'other_stats:points'].decode()
+        })
+
+    for perf in sorted(performances, key=lambda x: x['game_score'], reverse=True)[:5]:
+        print(f"\nJugador: {perf['player']}")
+        print(f"Game Score: {perf['game_score']}")
+        print(f"Puntos: {perf['points']}")
+
+except Exception as e:
+    print(f"Error: {str(e)}")
+finally:
+    # Cerrar la conexión
+    connection.close()
+ 
+guardamos con ctrl + o, enter y ctrl+ x.
+Instalamos la librería de pandas con.
+pip install pandas
+ 
+Ejecutamos el archivo consultas.py con:
+python3 consultas.py
+ 
+ 
+Análisis: el jugador con más desempeños es el jugador shai gilgeous alexander con un game score de 46.5 puntos y score de 45 puntos seguido por el jugador Nikola jovic con un game score de 44.6 y 37 puntos.
+ 
